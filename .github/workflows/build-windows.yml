@@ -1,0 +1,45 @@
+name: Build Windows portable EXE
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-windows:
+    name: Windows x64 portable
+    runs-on: windows-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: TypeScript check
+        run: npm run typecheck
+
+      - name: Build Vite application
+        run: npm run build:vite
+
+      - name: Package Windows portable EXE
+        env:
+          CSC_IDENTITY_AUTO_DISCOVERY: 'false'
+        run: npm run package:win
+
+      - name: Upload portable EXE
+        uses: actions/upload-artifact@v4
+        with:
+          name: AI-geometric-lab-windows-x64-portable
+          path: release/AI几何探索实验室.exe
+          if-no-files-found: error
+          retention-days: 30

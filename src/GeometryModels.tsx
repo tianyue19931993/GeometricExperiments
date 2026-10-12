@@ -4,7 +4,7 @@ import { useFrame, useThree } from '@react-three/fiber'
 import gsap from 'gsap'
 import { useEffect, useMemo, useRef } from 'react'
 import * as THREE from 'three'
-import { DimensionGuides } from './DimensionGuides'
+import { DimensionGuides, UnfoldedDimensionGuides } from './DimensionGuides'
 import { sceneDimensions, SHAPE_COLORS } from './model'
 import type { GeometryObject, SceneDimensions, Vec3Tuple } from './types'
 
@@ -167,7 +167,9 @@ function BoxModel({
           selected={selected}
         />
       ))}
-      {!object.unfolded && <DimensionGuides object={object} dimensions={dimensions} />}
+      {object.unfolded
+        ? <UnfoldedDimensionGuides object={object} dimensions={dimensions} />
+        : <DimensionGuides object={object} dimensions={dimensions} />}
     </group>
   )
 }
@@ -249,7 +251,10 @@ function MorphSurface({
   }, [data])
   const lastProgress = useRef(-1)
 
-  useEffect(() => () => geometry.dispose(), [geometry])
+  useEffect(() => {
+    lastProgress.current = -1
+    return () => geometry.dispose()
+  }, [geometry])
 
   useFrame(() => {
     const value = progress.current
@@ -390,7 +395,9 @@ function CurvedModel({
           selected={selected}
         />
       )}
-      {!object.unfolded && <DimensionGuides object={object} dimensions={dimensions} />}
+      {object.unfolded
+        ? <UnfoldedDimensionGuides object={object} dimensions={dimensions} />
+        : <DimensionGuides object={object} dimensions={dimensions} />}
     </group>
   )
 }

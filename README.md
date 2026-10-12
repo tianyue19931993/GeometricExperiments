@@ -30,7 +30,7 @@ npm run build
 npm run dist:win
 ```
 
-输出文件为 `release/AI几何探索实验室.exe`。Vite 使用相对资源路径，因此通过 Electron 的 `file://` 加载时，脚本、样式、图片、字体和放在 `public` 中的本地资源均从应用包内读取。新增 Three.js 模型、纹理和字体时，请使用源码导入或放入 `public`，不要引用 CDN 或其他远程 URL。
+输出文件为 `release/几何探索实验室.exe`。Vite 使用相对资源路径，因此通过 Electron 的 `file://` 加载时，脚本、样式、图片、字体和放在 `public` 中的本地资源均从应用包内读取。新增 Three.js 模型、纹理和字体时，请使用源码导入或放入 `public`，不要引用 CDN 或其他远程 URL。
 
 ## 在 GitHub Actions 手动打包
 
@@ -38,8 +38,8 @@ npm run dist:win
 2. 在左侧选择 **Build Windows portable EXE**。
 3. 点击 **Run workflow**，选择 `main`，再次点击 **Run workflow**。
 4. 等待任务完成，进入该次运行记录。
-5. 在页面底部的 **Artifacts** 下载 `AI-geometric-lab-windows-x64-portable`。
-6. 解压 Artifact，得到 `AI几何探索实验室.exe`。
+5. 在页面底部的 **Artifacts** 下载 `geometric-lab-windows-x64-portable`。
+6. 解压 Artifact，得到 `几何探索实验室.exe`。
 
 工作流只支持 `workflow_dispatch` 手动触发，不会在 Push 时自动打包，也不会创建 GitHub Release。
 

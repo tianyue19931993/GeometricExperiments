@@ -27,6 +27,9 @@ function CameraController({
   const selectedObjectRef = useRef(selectedObject)
   const selectedObjectId = selectedObject?.id ?? null
   const selectedObjectUnfolded = selectedObject?.unfolded ?? false
+  const selectedObjectSizeKey = selectedObject
+    ? `${selectedObject.unit}:${Object.values(selectedObject.dimensions).join(':')}`
+    : ''
 
   useEffect(() => {
     selectedObjectRef.current = selectedObject
@@ -64,7 +67,7 @@ function CameraController({
       controls.current?.update()
     })
     return () => window.cancelAnimationFrame(frame)
-  }, [camera, controls, selectedObjectId, selectedObjectUnfolded])
+  }, [camera, controls, selectedObjectId, selectedObjectSizeKey, selectedObjectUnfolded])
   return null
 }
 

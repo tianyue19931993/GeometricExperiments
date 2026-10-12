@@ -39,7 +39,7 @@ jobs:
       - name: Upload portable EXE
         uses: actions/upload-artifact@v7
         with:
-          name: AI-geometric-lab-windows-x64-portable
-          path: release/AI几何探索实验室.exe
+          name: geometric-lab-windows-x64-portable
+          path: release/几何探索实验室.exe
           if-no-files-found: error
           retention-days: 30

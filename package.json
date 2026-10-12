@@ -40,7 +40,7 @@
   },
   "build": {
     "appId": "com.geometricexperiments.app",
-    "productName": "AI几何探索实验室",
+    "productName": "几何探索实验室",
     "asar": true,
     "directories": {
       "output": "release"
@@ -59,7 +59,7 @@
           ]
         }
       ],
-      "artifactName": "AI几何探索实验室.exe"
+      "artifactName": "几何探索实验室.exe"
     }
   }
 }

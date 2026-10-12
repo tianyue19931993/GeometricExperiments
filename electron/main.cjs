@@ -9,7 +9,7 @@ function createWindow() {
     height: 800,
     minWidth: 960,
     minHeight: 640,
-    title: 'AI几何探索实验室',
+    title: '几何探索实验室',
     backgroundColor: '#08060d',
     webPreferences: {
       contextIsolation: true,

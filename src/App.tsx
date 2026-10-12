@@ -23,8 +23,6 @@ const DIMENSION_LABELS: Record<DimensionKey, string> = {
   radius: '半径',
 }
 
-const STEPS = ['选择图形', '调整图形尺寸', '图形展示', '自由探索']
-
 interface DimensionControlProps {
   object: GeometryObject
   dimensionKey: DimensionKey
@@ -144,19 +142,11 @@ function App() {
           <span />
         </div>
         <div className="brand-copy">
-          <h1>AI几何探索实验室</h1>
+          <h1>几何探索实验室</h1>
           <p>亲手调整 · 自由观察 · 发现立体图形的秘密</p>
         </div>
         <div className="offline-pill"><span /> 离线探索模式</div>
       </header>
-
-      <section className="learning-steps" aria-label="探索步骤">
-        {STEPS.map((title) => (
-          <div className="learning-step" key={title}>
-            <strong>{title}</strong>
-          </div>
-        ))}
-      </section>
 
       <section className="workspace">
         <aside className="panel library-panel">

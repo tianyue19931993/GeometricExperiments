@@ -23,7 +23,7 @@ function DimensionLabel({ position, children }: { position: Vec3Tuple; children:
       position={position}
       center
       transform
-      distanceFactor={8}
+      distanceFactor={5}
       style={{ pointerEvents: 'none' }}
     >
       <span className="dimension-label">{children}</span>

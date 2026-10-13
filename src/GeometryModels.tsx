@@ -83,16 +83,12 @@ function FacePanel({ size, solid, flat, progress, color, transparent, selected }
   useAnimatedTransform(ref, progress, solid, flat)
   return (
     <group ref={ref}>
-      <mesh castShadow receiveShadow>
+      <mesh>
         <planeGeometry args={size} />
-        <meshPhysicalMaterial
+        <meshBasicMaterial
           color={color}
-          emissive={selected ? '#332b88' : '#000000'}
-          emissiveIntensity={selected ? 0.16 : 0}
-          roughness={0.34}
-          metalness={0.04}
           transparent={transparent}
-          opacity={transparent ? 0.38 : 0.94}
+          opacity={transparent ? 0.38 : 1}
           depthWrite={!transparent}
           side={THREE.DoubleSide}
         />
@@ -234,13 +230,11 @@ function MorphSurface({
   progress,
   color,
   transparent,
-  selected,
 }: {
   data: SurfaceData
   progress: React.RefObject<number>
   color: string
   transparent: boolean
-  selected: boolean
 }) {
   const geometry = useMemo(() => {
     const result = new THREE.BufferGeometry()
@@ -270,15 +264,11 @@ function MorphSurface({
   })
 
   return (
-    <mesh geometry={geometry} castShadow receiveShadow>
-      <meshPhysicalMaterial
+    <mesh geometry={geometry}>
+      <meshBasicMaterial
         color={color}
-        emissive={selected ? '#6b3b16' : '#000000'}
-        emissiveIntensity={selected ? 0.14 : 0}
-        roughness={0.38}
-        metalness={0.02}
         transparent={transparent}
-        opacity={transparent ? 0.38 : 0.94}
+        opacity={transparent ? 0.38 : 1}
         depthWrite={!transparent}
         side={THREE.DoubleSide}
       />
@@ -307,15 +297,12 @@ function AnimatedDisk({
   useAnimatedTransform(ref, progress, solid, flat)
   return (
     <group ref={ref}>
-      <mesh castShadow receiveShadow>
+      <mesh>
         <circleGeometry args={[radius, 64]} />
-        <meshPhysicalMaterial
+        <meshBasicMaterial
           color={color}
-          emissive={selected ? '#6b3b16' : '#000000'}
-          emissiveIntensity={selected ? 0.14 : 0}
-          roughness={0.38}
           transparent={transparent}
-          opacity={transparent ? 0.38 : 0.94}
+          opacity={transparent ? 0.38 : 1}
           depthWrite={!transparent}
           side={THREE.DoubleSide}
         />
@@ -361,7 +348,6 @@ function CurvedModel({
         progress={progress}
         color={color}
         transparent={object.transparent}
-        selected={selected}
       />
       {isCylinder ? (
         <>

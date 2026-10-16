@@ -10,6 +10,7 @@
     "typecheck": "tsc -b",
     "build:vite": "vite build",
     "build": "tsc -b && vite build",
+    "build:html": "tsc -b && node scripts/build-single-html.mjs",
     "package:win": "electron-builder --win portable --x64 --publish never",
     "dist:win": "npm run build && npm run package:win",
     "lint": "oxlint",

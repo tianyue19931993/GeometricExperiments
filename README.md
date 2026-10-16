@@ -24,6 +24,14 @@ npm run dev:desktop
 npm run build
 ```
 
+生成可直接用浏览器打开的离线单文件 HTML：
+
+```bash
+npm run build:html
+```
+
+输出文件为 `dist-html/几何探索实验室.html`。页面所需的 JavaScript、CSS 和图标均内嵌在该文件中，不依赖在线 CDN；可以复制到其他电脑并直接用现代浏览器打开。
+
 在 Windows x64 环境生成 portable 单文件 EXE：
 
 ```bash

@@ -145,7 +145,6 @@ function App() {
           <h1>几何探索实验室</h1>
           <p>亲手调整 · 自由观察 · 发现立体图形的秘密</p>
         </div>
-        <div className="offline-pill"><span /> 离线探索模式</div>
       </header>
 
       <section className="workspace">
@@ -269,19 +268,6 @@ function App() {
               )}
 
               <div className="property-section exploration-section">
-                <div className="property-section-title"><strong>自由探索</strong></div>
-                <label className="switch-row">
-                  <span><strong>透明模式</strong><small>观察背面和内部轮廓</small></span>
-                  <input
-                    type="checkbox"
-                    checked={selectedObject.transparent}
-                    onChange={(event) => updateObject(
-                      selectedObject.id,
-                      (object) => ({ ...object, transparent: event.target.checked }),
-                    )}
-                  />
-                  <i aria-hidden="true" />
-                </label>
                 <button
                   className={`unfold-button ${selectedObject.unfolded ? 'is-unfolded' : ''}`}
                   onClick={() => updateObject(

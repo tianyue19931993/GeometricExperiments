@@ -4,7 +4,6 @@ import type {
   SceneDimensions,
   ShapeType,
   Unit,
-  Vec3Tuple,
 } from './types'
 import { SHAPE_LABELS } from './types'
 
@@ -33,12 +32,6 @@ const DEFAULTS: Record<ShapeType, Partial<Record<DimensionKey, number>>> = {
   cuboid: { length: 4, width: 3, height: 2 },
   cylinder: { radius: 1, height: 3 },
   cone: { radius: 1, height: 3 },
-}
-
-function objectPosition(index: number): Vec3Tuple {
-  const column = index % 3
-  const row = Math.floor(index / 3)
-  return [(column - 1) * 4.2, 0, row * 4.2]
 }
 
 function objectLetter(index: number) {
@@ -76,8 +69,8 @@ export function createGeometryObject(type: ShapeType, index: number): GeometryOb
     dimensions,
     demoDimensions,
     unit: 'cm',
-    position: objectPosition(index),
-    transparent: false,
+    position: [0, 0, 0],
+    transparent: true,
     unfolded: false,
     radialMode: 'radius',
   }
@@ -123,7 +116,13 @@ export function sceneDimensions(object: GeometryObject): SceneDimensions {
   // normalization here would make (for example) every cube look identical,
   // regardless of the edge value selected by the learner.
   const scale = (UNIT_TO_MM[object.unit] / UNIT_TO_MM.cm) * 0.6
-  const toSceneLength = (value: number) => Math.min(12, Math.max(value * scale, 0.18))
+  // Compress very large real-world lengths without clamping them to one fixed
+  // size. This keeps the model responsive across the full 0.5–20 slider range,
+  // including units such as dm, while preserving unit conversion consistency.
+  const toSceneLength = (value: number) => {
+    const physicalLength = Math.max(value * scale, 0)
+    return Math.max(3 * Math.log1p(physicalLength / 3), 0.18)
+  }
   return {
     x: toSceneLength(raw.x),
     y: toSceneLength(raw.y),

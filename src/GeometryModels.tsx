@@ -159,7 +159,7 @@ function BoxModel({
           {...face}
           progress={progress}
           color={color}
-          transparent={object.transparent}
+          transparent
           selected={selected}
         />
       ))}
@@ -347,7 +347,7 @@ function CurvedModel({
         data={data}
         progress={progress}
         color={color}
-        transparent={object.transparent}
+        transparent
       />
       {isCylinder ? (
         <>
@@ -357,7 +357,7 @@ function CurvedModel({
             flat={{ position: [0, height / 2 + radius, 0], rotation: [0, 0, 0] }}
             progress={progress}
             color={color}
-            transparent={object.transparent}
+            transparent
             selected={selected}
           />
           <AnimatedDisk
@@ -366,7 +366,7 @@ function CurvedModel({
             flat={{ position: [0, -height / 2 - radius, 0], rotation: [0, 0, 0] }}
             progress={progress}
             color={color}
-            transparent={object.transparent}
+            transparent
             selected={selected}
           />
         </>
@@ -377,7 +377,7 @@ function CurvedModel({
           flat={{ position: [0, coneApexY - slant - radius, 0], rotation: [0, 0, 0] }}
           progress={progress}
           color={color}
-          transparent={object.transparent}
+          transparent
           selected={selected}
         />
       )}

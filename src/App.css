@@ -32,9 +32,6 @@
 
 .brand-copy h1 { margin: 0; font-size: 21px; line-height: 1.15; letter-spacing: .01em; font-weight: 780; color: #171d3a; }
 .brand-copy p { margin: 5px 0 0; color: #7a8798; font-size: 11px; letter-spacing: .08em; }
-.offline-pill { margin-left: auto; display: flex; align-items: center; gap: 7px; border: 1px solid #d5e4df; background: #f1faf6; color: #38856a; padding: 7px 12px; border-radius: 999px; font-size: 12px; font-weight: 650; }
-.offline-pill span { width: 7px; height: 7px; border-radius: 50%; background: #45b88e; box-shadow: 0 0 0 4px rgba(69,184,142,.12); }
-
 .workspace { min-height: 0; display: grid; grid-template-columns: 258px minmax(420px,1fr) 320px; gap: 10px; padding: 10px; }
 .panel, .stage-panel { min-height: 0; background: rgba(255,255,255,.96); border: 1px solid #d9e3eb; border-radius: 16px; box-shadow: 0 10px 35px rgba(42,67,88,.08); overflow: hidden; }
 .panel { display: flex; flex-direction: column; }
@@ -133,15 +130,6 @@
 .model-notice strong { color: #7f5d26; font-size: 9px; }
 .model-notice small { color: #a08251; font-size: 8px; line-height: 1.45; }
 .exploration-section { padding-top: 12px; border-bottom: 0; }
-.switch-row { position: relative; display: flex; align-items: center; padding: 8px 0; cursor: pointer; }
-.switch-row > span { display: flex; flex-direction: column; padding-right: 48px; }
-.switch-row strong { font-size: 10px; }
-.switch-row small { color: #8e99a7; font-size: 8px; }
-.switch-row input { position: absolute; opacity: 0; pointer-events: none; }
-.switch-row i { position: absolute; right: 0; width: 34px; height: 19px; border-radius: 999px; background: #cbd4dd; transition: background 180ms ease; }
-.switch-row i::after { content: ''; position: absolute; width: 15px; height: 15px; left: 2px; top: 2px; border-radius: 50%; background: white; box-shadow: 0 1px 4px rgba(0,0,0,.2); transition: transform 180ms ease; }
-.switch-row input:checked + i { background: var(--violet); }
-.switch-row input:checked + i::after { transform: translateX(15px); }
 .unfold-button { width: 100%; display: flex; align-items: center; gap: 10px; margin-top: 8px; padding: 10px; border: 1px solid #c8c5fa; border-radius: 11px; color: #4d48bd; background: linear-gradient(135deg,#f5f4ff,#ecebff); cursor: pointer; text-align: left; }
 .unfold-button:hover { border-color: #8e89ea; box-shadow: 0 6px 16px rgba(78,72,189,.12); }
 .unfold-button > span:first-child { font-size: 22px; }
